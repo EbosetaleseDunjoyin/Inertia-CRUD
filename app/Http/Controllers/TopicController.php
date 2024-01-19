@@ -18,16 +18,7 @@ class TopicController extends Controller
 
     public function index()  {
         
-        // return Inertia::render("Topics/Index",[
-        //     'topics' => Topic::all()->map(function($topic){
-        //         return [
-        //             "id" => $topic->id,
-        //             "name" => $topic->name,
-        //             "image" => asset('storage/'.$topic->image),
-                    
-        //         ];
-        //     })->sortByDesc('created_at'),
-        // ]);
+      
         $topics = Topic::orderByDesc('created_at')->get();
         return Inertia::render("Topics/Index", [
             'topics' => $topics->map(function ($topic) {
